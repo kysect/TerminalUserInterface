@@ -1,6 +1,7 @@
 ﻿
 using Kysect.TerminalUserInterface.DependencyInjection;
 using Kysect.TerminalUserInterface.Navigation;
+using Kysect.TerminalUserInterface.Sample;
 using Lunet.Extensions.Logging.SpectreConsole;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

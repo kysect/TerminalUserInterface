@@ -2,6 +2,8 @@
 using Kysect.TerminalUserInterface.Navigation;
 using Kysect.TerminalUserInterface.Sample.Menu;
 
+namespace Kysect.TerminalUserInterface.Sample;
+
 public class SampleMenuInitializer
 {
     private readonly TuiMenuProvider _menuProvider;
