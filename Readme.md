@@ -1,6 +1,6 @@
 # Terminal User Interface
 
-Kysect.TUI - это библиотека для упрощения разработки консольных приложений с интерактивным консольным интерфейсом на библиотеки SpectreConsole.
+Kysect.TUI - это библиотека для упрощения разработки консольных приложений с интерактивным консольным интерфейсом на основе библиотеки [SpectreConsole](https://spectreconsole.net/).
 
 ## How to use - Navigation
 
