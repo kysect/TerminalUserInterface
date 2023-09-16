@@ -2,7 +2,7 @@
 
 namespace Kysect.TerminalUserInterface.Controls.Input;
 
-public class PasswordInput
+public static class PasswordInput
 {
     public static string Prompt()
     {
