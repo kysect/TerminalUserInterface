@@ -9,6 +9,6 @@ public class ThirdMenu : ITuiMenu
 
     public IReadOnlyCollection<ITuiCommand> GetMenuItems()
     {
-        return new ITuiCommand[] {new FirstCommand(), new SecondCommand(), };
+        return new ITuiCommand[] { new FirstCommand(), new SecondCommand(), };
     }
 }

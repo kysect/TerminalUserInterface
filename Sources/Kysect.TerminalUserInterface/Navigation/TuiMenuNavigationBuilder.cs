@@ -1,4 +1,5 @@
-﻿using Kysect.TerminalUserInterface.Menu;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Kysect.TerminalUserInterface.Menu;
 using System;
 using System.Collections.Generic;
 
@@ -33,6 +34,8 @@ public class TuiMenuNavigationBuilder
 
     public TuiMenuNavigationBuilder WithSubMenu<T>(Action<TuiMenuNavigationBuilder> innerBuilderModification) where T : ITuiMenu
     {
+        innerBuilderModification.ThrowIfNull();
+
         var innerBuilder = new TuiMenuNavigationBuilder(_menuProvider);
         innerBuilder = innerBuilder.WithMainMenu<T>();
         innerBuilderModification(innerBuilder);

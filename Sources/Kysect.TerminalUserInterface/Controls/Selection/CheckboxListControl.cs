@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Kysect.TerminalUserInterface.Controls.Selection;
 
-public class CheckboxListControl
+public static class CheckboxListControl
 {
     public static T Ask<T>(string title) where T : notnull
     {

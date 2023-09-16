@@ -1,9 +1,13 @@
-﻿namespace Kysect.TerminalUserInterface.Commands;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
 
-public class TuiCommandExtensions
+namespace Kysect.TerminalUserInterface.Commands;
+
+public static class TuiCommandExtensions
 {
     public static string ToNameConverter(ITuiCommand command)
     {
+        command.ThrowIfNull();
+
         return command.Name;
     }
 }

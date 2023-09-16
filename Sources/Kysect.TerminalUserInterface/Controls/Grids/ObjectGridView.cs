@@ -1,4 +1,5 @@
-﻿using Kysect.TerminalUserInterface.Tools;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Kysect.TerminalUserInterface.Tools;
 using Spectre.Console;
 using Spectre.Console.Rendering;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ public class ObjectGridView<T>
 
     public void Show(IReadOnlyCollection<T> elements)
     {
+        elements.ThrowIfNull();
+
         var grid = new Grid();
 
         IReadOnlyCollection<string> header = _deconstructor.GetHeader();

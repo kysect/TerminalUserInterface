@@ -12,6 +12,7 @@ public class SpectreConsoleProgressTracker : IProgressTracker
 
     private bool _isFinished;
     private int _progress;
+    private bool _disposedValue;
 
     public SpectreConsoleProgressTracker(string operationName, int maxValue)
     {
@@ -57,14 +58,27 @@ public class SpectreConsoleProgressTracker : IProgressTracker
         _updateEvent.Set();
     }
 
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposedValue)
+            return;
+
+        if (disposing)
+        {
+            _isFinished = true;
+
+            _updateEvent.Set();
+            _runningTask.Wait();
+
+            _runningTask.Dispose();
+            _updateEvent?.Dispose();
+        }
+
+        _disposedValue = true;
+    }
+
     public void Dispose()
     {
-        _isFinished = true;
-
-        _updateEvent.Set();
-        _runningTask.Wait();
-
-        _runningTask.Dispose();
-        _updateEvent?.Dispose();
+        Dispose(disposing: true);
     }
 }

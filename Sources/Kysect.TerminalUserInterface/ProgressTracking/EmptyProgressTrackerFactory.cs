@@ -4,12 +4,17 @@ public class EmptyProgressTrackerFactory : IProgressTrackerFactory
 {
     public class EmptyProgressTracker : IProgressTracker
     {
-        public void Dispose()
+        public void OnUpdate()
         {
         }
 
-        public void OnUpdate()
+        protected virtual void Dispose(bool disposing)
         {
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
         }
     }
 

@@ -1,23 +1,27 @@
-﻿using System;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Kysect.TerminalUserInterface.ProgressTracking;
 
-public class ProgressTrackCollection<T>
+public class CollectionProgressTracker<T>
 {
     private readonly IProgressTrackerFactory _progressTrackerFactory;
 
     public IReadOnlyCollection<T> Values { get; }
 
-    public ProgressTrackCollection(IProgressTrackerFactory progressTrackerFactory, IReadOnlyCollection<T> values)
+    public CollectionProgressTracker(IProgressTrackerFactory progressTrackerFactory, IReadOnlyCollection<T> values)
     {
         _progressTrackerFactory = progressTrackerFactory;
         Values = values;
     }
 
-    public ProgressTrackCollection<TResult> Select<TResult>(string operation, Func<T, TResult> selector)
+    public CollectionProgressTracker<TResult> Select<TResult>(string operation, Func<T, TResult> selector)
     {
+        operation.ThrowIfNull();
+        selector.ThrowIfNull();
+
         var result = new List<TResult>(Values.Count);
 
         using IProgressTracker progressTracker = _progressTrackerFactory.Create(operation, Values.Count);
@@ -29,10 +33,10 @@ public class ProgressTrackCollection<T>
             progressTracker.OnUpdate();
         }
 
-        return new ProgressTrackCollection<TResult>(_progressTrackerFactory, result);
+        return new CollectionProgressTracker<TResult>(_progressTrackerFactory, result);
     }
 
-    public ProgressTrackCollection<TResult> SelectParallel<TResult>(string operation, Func<T, TResult> selector)
+    public CollectionProgressTracker<TResult> SelectParallel<TResult>(string operation, Func<T, TResult> selector)
     {
         using IProgressTracker progressTracker = _progressTrackerFactory.Create(operation, Values.Count);
 
@@ -47,11 +51,14 @@ public class ProgressTrackCollection<T>
             })
             .ToList();
 
-        return new ProgressTrackCollection<TResult>(_progressTrackerFactory, results);
+        return new CollectionProgressTracker<TResult>(_progressTrackerFactory, results);
     }
 
-    public ProgressTrackCollection<TResult> SelectMany<TResult>(string operation, Func<T, IReadOnlyCollection<TResult>> selector)
+    public CollectionProgressTracker<TResult> SelectMany<TResult>(string operation, Func<T, IReadOnlyCollection<TResult>> selector)
     {
+        operation.ThrowIfNull();
+        selector.ThrowIfNull();
+
         var result = new List<TResult>(Values.Count);
 
         using (IProgressTracker progressTracker = _progressTrackerFactory.Create(operation, Values.Count))
@@ -63,10 +70,10 @@ public class ProgressTrackCollection<T>
             }
         }
 
-        return new ProgressTrackCollection<TResult>(_progressTrackerFactory, result);
+        return new CollectionProgressTracker<TResult>(_progressTrackerFactory, result);
     }
 
-    public ProgressTrackCollection<TResult> SelectManyParallel<TResult>(string operation, Func<T, IReadOnlyCollection<TResult>> selector)
+    public CollectionProgressTracker<TResult> SelectManyParallel<TResult>(string operation, Func<T, IReadOnlyCollection<TResult>> selector)
     {
         using IProgressTracker progressTracker = _progressTrackerFactory.Create(operation, Values.Count);
 
@@ -80,11 +87,14 @@ public class ProgressTrackCollection<T>
             })
             .ToList();
 
-        return new ProgressTrackCollection<TResult>(_progressTrackerFactory, results);
+        return new CollectionProgressTracker<TResult>(_progressTrackerFactory, results);
     }
 
-    public ProgressTrackCollection<T> Where(string operation, Predicate<T> predicate)
+    public CollectionProgressTracker<T> Where(string operation, Predicate<T> predicate)
     {
+        operation.ThrowIfNull();
+        predicate.ThrowIfNull();
+
         var result = new List<T>();
 
         using (IProgressTracker progressTracker = _progressTrackerFactory.Create(operation, Values.Count))
@@ -97,10 +107,10 @@ public class ProgressTrackCollection<T>
             }
         }
 
-        return new ProgressTrackCollection<T>(_progressTrackerFactory, result);
+        return new CollectionProgressTracker<T>(_progressTrackerFactory, result);
     }
 
-    public ProgressTrackCollection<T> ApplyParallel(string operation, Action<T> applicator)
+    public CollectionProgressTracker<T> ApplyParallel(string operation, Action<T> applicator)
     {
         using IProgressTracker progressTracker = _progressTrackerFactory.Create(operation, Values.Count);
 
@@ -114,6 +124,6 @@ public class ProgressTrackCollection<T>
             })
             .ToList();
 
-        return new ProgressTrackCollection<T>(_progressTrackerFactory, results);
+        return new CollectionProgressTracker<T>(_progressTrackerFactory, results);
     }
 }
