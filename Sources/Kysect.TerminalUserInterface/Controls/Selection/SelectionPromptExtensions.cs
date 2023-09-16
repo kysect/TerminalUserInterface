@@ -1,4 +1,5 @@
-﻿using Spectre.Console;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Spectre.Console;
 using System;
 
 namespace Kysect.TerminalUserInterface.Controls.Selection;
@@ -10,6 +11,8 @@ public static class SelectionPromptExtensions
     public static T? PromptWithCancellation<T>(this SelectionPrompt<T> selectionPrompt)
         where T : class
     {
+        selectionPrompt.ThrowIfNull();
+
         // KB: we use null value for cancellation
         selectionPrompt.AddChoice(default!);
 

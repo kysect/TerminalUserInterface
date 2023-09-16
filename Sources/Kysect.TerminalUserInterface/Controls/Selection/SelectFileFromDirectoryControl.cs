@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Kysect.TerminalUserInterface.Controls.Selection;
 
-public class SelectFileFromDirectoryControl
+public static class SelectFileFromDirectoryControl
 {
     public static bool TrySelectFile(string directory, out string? file)
     {
