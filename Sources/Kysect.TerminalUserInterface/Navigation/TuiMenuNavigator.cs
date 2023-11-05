@@ -86,7 +86,7 @@ public class TuiMenuNavigator
                 break;
 
             default:
-                throw SwitchDefaultExceptions.OnUnexpectedType(nameof(navigationTuiCommand), navigationTuiCommand);
+                throw SwitchDefaultExceptions.OnUnexpectedType(navigationTuiCommand);
         }
     }
 }
