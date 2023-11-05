@@ -1,11 +1,12 @@
-﻿using Spectre.Console;
+﻿using Kysect.CommonLib.ProgressTracking;
+using Spectre.Console;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Kysect.TerminalUserInterface.ProgressTracking;
 
-public class SpectreConsoleProgressTracker : IProgressTracker
+public class SpectreConsoleProgressTracker : IProgressTracker, IDisposable
 {
     private readonly AutoResetEvent _updateEvent;
     private readonly Task _runningTask;
