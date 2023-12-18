@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -17,10 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kysect.CommonLib" Version="0.1.9" />
-    <PackageReference Include="Kysect.CommonLib.DependencyInjection" Version="0.1.9" />
-    <PackageReference Include="Kysect.Editorconfig" Version="1.1.4" />
-    <PackageReference Include="Spectre.Console" Version="0.47.0" />
+    <PackageReference Include="Kysect.CommonLib" />
+    <PackageReference Include="Kysect.CommonLib.DependencyInjection" />
+    <PackageReference Include="Kysect.Editorconfig" />
+    <PackageReference Include="Spectre.Console" />
   </ItemGroup>
 
 </Project>
