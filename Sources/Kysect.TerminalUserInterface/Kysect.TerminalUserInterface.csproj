@@ -19,7 +19,6 @@
   <ItemGroup>
     <PackageReference Include="Kysect.CommonLib" />
     <PackageReference Include="Kysect.CommonLib.DependencyInjection" />
-    <PackageReference Include="Kysect.Editorconfig" />
     <PackageReference Include="Spectre.Console" />
   </ItemGroup>
 

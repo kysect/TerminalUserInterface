@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Kysect.Editorconfig" />
     <PackageReference Include="Lunet.Extensions.Logging.SpectreConsole" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
   </ItemGroup>
