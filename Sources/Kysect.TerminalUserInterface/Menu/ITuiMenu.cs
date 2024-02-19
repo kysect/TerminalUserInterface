@@ -1,5 +1,4 @@
 ﻿using Kysect.TerminalUserInterface.Commands;
-using System.Collections.Generic;
 
 namespace Kysect.TerminalUserInterface.Menu;
 

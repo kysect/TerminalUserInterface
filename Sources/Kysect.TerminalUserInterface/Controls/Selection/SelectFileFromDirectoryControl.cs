@@ -1,7 +1,4 @@
-﻿using System.IO;
-using System.Linq;
-
-namespace Kysect.TerminalUserInterface.Controls.Selection;
+﻿namespace Kysect.TerminalUserInterface.Controls.Selection;
 
 public static class SelectFileFromDirectoryControl
 {

@@ -2,8 +2,6 @@
 using Kysect.TerminalUserInterface.Tools;
 using Spectre.Console;
 using Spectre.Console.Rendering;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Kysect.TerminalUserInterface.Controls.Grids;
 

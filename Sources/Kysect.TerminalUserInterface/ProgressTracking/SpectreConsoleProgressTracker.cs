@@ -1,8 +1,5 @@
 ﻿using Kysect.CommonLib.ProgressTracking;
 using Spectre.Console;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Kysect.TerminalUserInterface.ProgressTracking;
 

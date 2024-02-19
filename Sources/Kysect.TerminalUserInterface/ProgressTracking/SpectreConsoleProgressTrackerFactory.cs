@@ -1,6 +1,4 @@
 ﻿using Kysect.CommonLib.ProgressTracking;
-using System;
-using System.Collections.Generic;
 
 namespace Kysect.TerminalUserInterface.ProgressTracking;
 

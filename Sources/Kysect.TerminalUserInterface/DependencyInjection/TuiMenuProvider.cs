@@ -1,6 +1,5 @@
 ﻿using Kysect.TerminalUserInterface.Menu;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Kysect.TerminalUserInterface.DependencyInjection;
 

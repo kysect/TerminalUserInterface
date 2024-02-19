@@ -1,7 +1,6 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
 using Spectre.Console;
 using Spectre.Console.Rendering;
-using System;
 
 namespace Kysect.TerminalUserInterface.ProgressTracking;
 

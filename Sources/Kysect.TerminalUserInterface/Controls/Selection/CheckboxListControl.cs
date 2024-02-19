@@ -2,7 +2,6 @@
 using Kysect.CommonLib.Reflection.TypeCache;
 using Kysect.TerminalUserInterface.Tools;
 using Spectre.Console;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace Kysect.TerminalUserInterface.Controls.Selection;

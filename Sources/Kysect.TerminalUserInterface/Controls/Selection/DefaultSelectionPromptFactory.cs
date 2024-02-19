@@ -1,6 +1,4 @@
 ﻿using Spectre.Console;
-using System;
-using System.Collections.Generic;
 
 namespace Kysect.TerminalUserInterface.Controls.Selection;
 

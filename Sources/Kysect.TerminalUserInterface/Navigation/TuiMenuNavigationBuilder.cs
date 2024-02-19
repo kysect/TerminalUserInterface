@@ -1,7 +1,5 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
 using Kysect.TerminalUserInterface.Menu;
-using System;
-using System.Collections.Generic;
 
 namespace Kysect.TerminalUserInterface.Navigation;
 

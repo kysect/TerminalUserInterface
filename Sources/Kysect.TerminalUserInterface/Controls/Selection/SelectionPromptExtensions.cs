@@ -1,6 +1,5 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
 using Spectre.Console;
-using System;
 
 namespace Kysect.TerminalUserInterface.Controls.Selection;
 

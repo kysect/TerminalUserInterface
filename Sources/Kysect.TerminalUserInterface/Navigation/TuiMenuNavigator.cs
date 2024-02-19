@@ -4,9 +4,6 @@ using Kysect.TerminalUserInterface.Controls.Selection;
 using Kysect.TerminalUserInterface.Navigation.Commands;
 using Microsoft.Extensions.Logging;
 using Spectre.Console;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Kysect.TerminalUserInterface.Navigation;
 
