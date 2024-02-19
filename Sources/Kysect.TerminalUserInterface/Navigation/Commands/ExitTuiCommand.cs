@@ -2,8 +2,8 @@
 
 namespace Kysect.TerminalUserInterface.Navigation.Commands;
 
-[TuiName("Return")]
-public class ReturnTuiCommand : INavigationTuiCommand
+[TuiName("Exit")]
+public class ExitTuiCommand : INavigationTuiCommand
 {
     public void Execute()
     {

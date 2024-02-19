@@ -2,6 +2,7 @@
 using Kysect.TerminalUserInterface.Commands;
 using Kysect.TerminalUserInterface.Controls.Selection;
 using Kysect.TerminalUserInterface.Navigation.Commands;
+using Kysect.TerminalUserInterface.Tools;
 using Microsoft.Extensions.Logging;
 using Spectre.Console;
 
@@ -48,13 +49,13 @@ public class TuiMenuNavigator
         var commandList = new List<ITuiCommand>();
         commandList.AddRange(currentMenu.Menu.GetMenuItems());
         commandList.AddRange(currentMenu.NavigationLinks.Select(n => new NavigateToSubmenuTuiCommand(n)));
-        commandList.Add(new ReturnTuiCommand(isCurrentElementRoot));
+        commandList.Add(isCurrentElementRoot ? new ExitTuiCommand() : new ReturnTuiCommand());
         return commandList;
     }
 
     private void ExecuteCommand(ITuiCommand selectedCommand)
     {
-        _logger.LogInformation("Start command: " + selectedCommand.Name);
+        _logger.LogInformation("Start command: " + selectedCommand.GetName());
 
         try
         {
@@ -62,15 +63,15 @@ public class TuiMenuNavigator
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "Error while execution command " + selectedCommand.Name);
+            _logger.LogError(e, "Error while execution command " + selectedCommand.GetName());
         }
 
-        _logger.LogInformation("Stop command: " + selectedCommand.Name);
+        _logger.LogInformation("Stop command: " + selectedCommand.GetName());
     }
 
     private void ExecuteNavigationCommand(INavigationTuiCommand navigationTuiCommand, Stack<TuiMenuNavigationItem> menuNavigationStack)
     {
-        _logger.LogDebug("Select navigation command " + navigationTuiCommand.Name);
+        _logger.LogDebug("Select navigation command " + navigationTuiCommand.GetName());
 
         switch (navigationTuiCommand)
         {

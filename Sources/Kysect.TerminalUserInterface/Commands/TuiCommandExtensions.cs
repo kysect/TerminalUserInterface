@@ -1,4 +1,5 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Kysect.TerminalUserInterface.Tools;
 
 namespace Kysect.TerminalUserInterface.Commands;
 
@@ -8,6 +9,6 @@ public static class TuiCommandExtensions
     {
         command.ThrowIfNull();
 
-        return command.Name;
+        return command.GetName();
     }
 }
