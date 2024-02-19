@@ -1,14 +1,18 @@
 <Project>
-	<ItemGroup>
-		<PackageReference Include="Kysect.Editorconfig" />
-	</ItemGroup>
-	<PropertyGroup>
-		<UseArtifactsOutput>true</UseArtifactsOutput>
-		<Authors>Kysect</Authors>
-		<Company>Kysect</Company>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<DebugType>portable</DebugType>
-		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	</PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Kysect.Editorconfig" />
+  </ItemGroup>
+  <PropertyGroup>
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <Authors>Kysect</Authors>
+    <Company>Kysect</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <DebugType>portable</DebugType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Copyright>Copyright (c) Kysect 2024</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
 </Project>
