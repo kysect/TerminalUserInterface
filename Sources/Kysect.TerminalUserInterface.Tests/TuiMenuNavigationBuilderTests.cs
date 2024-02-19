@@ -1,21 +1,20 @@
 ﻿using FluentAssertions;
 using Kysect.TerminalUserInterface.Navigation;
 using Kysect.TerminalUserInterface.Tests.Mocks;
-using NUnit.Framework;
 
 namespace Kysect.TerminalUserInterface.Tests;
 
 public class TuiMenuNavigationBuilderTests
 {
-    private TuiMenuNavigationBuilder _builder;
+    private readonly TuiMenuNavigationBuilder _builder;
 
-    [SetUp]
-    public void Setup()
+    public TuiMenuNavigationBuilderTests()
     {
         _builder = new TuiMenuNavigationBuilder(new TestTuiMenuProvider());
+
     }
 
-    [Test]
+    [Fact]
     public void Build_WithMenuAndSubMenu_ReturnMenuWithCorrectElements()
     {
         TuiMenuNavigationItem menu = _builder
