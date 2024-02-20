@@ -1,6 +1,8 @@
-﻿namespace Kysect.TerminalUserInterface.Menu;
+﻿using Kysect.TerminalUserInterface.Commands;
+
+namespace Kysect.TerminalUserInterface.Menu;
 
 public interface ITuiMenuProvider
 {
-    public T GetMenu<T>() where T : ITuiMenu;
+    public ITuiCommand GetCommand(Type commandType);
 }
