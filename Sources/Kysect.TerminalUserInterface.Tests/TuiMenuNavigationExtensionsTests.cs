@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
 using Kysect.TerminalUserInterface.Commands;
 using Kysect.TerminalUserInterface.Menu;
-using Kysect.TerminalUserInterface.Tools;
+using Kysect.TerminalUserInterface.Navigation;
 using Spectre.Console;
 
 namespace Kysect.TerminalUserInterface.Tests;
 
-public class TuiMenuExtensionsTests
+public class TuiMenuNavigationExtensionsTests
 {
     public class FirstCommand : ITuiCommand
     {
@@ -27,7 +27,7 @@ public class TuiMenuExtensionsTests
     {
         Type menuType = typeof(ITestMenu);
 
-        IReadOnlyCollection<TuiMenuCommandElement> items = TuiMenuExtensions.GetMenuCommands(menuType);
+        IReadOnlyCollection<TuiMenuCommandElement> items = TuiMenuNavigationExtensions.GetMenuCommands(menuType);
 
         items.Should().BeEquivalentTo([new TuiMenuCommandElement("First command", typeof(FirstCommand))]);
     }
