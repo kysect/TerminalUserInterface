@@ -9,11 +9,9 @@ Kysect.TUI - это библиотека для упрощения разраб�
 ```csharp
 public class FirstCommand : ITuiCommand
 {
-    public string Name => "First command";
-
     public void Execute()
     {
-        AnsiConsole.WriteLine(Name);
+        AnsiConsole.WriteLine("First");
     }
 }
 ```
@@ -36,27 +34,18 @@ Root menu (menu)
     Exit (navigation command)
 ```
 
-Для реализации такого меню нужно описать меню (навигационные команды добавляются автоматически):
-
 ```csharp
-public class Feature1Menu : ITuiMenu
+public interface ISampleMainMenu : ITuiMainMenu
 {
-    public string Name => "First menu";
-
-    public IReadOnlyCollection<ITuiCommand> GetMenuItems()
-    {
-        return new[] { new Command1(), new Command2() };
-    }
+    IFirstMenu FirstMenu { get; }
+    ISecondMenu SecondMenu { get; }
 }
-```
 
-И описать структуру меню:
-
-```csharp
-builder
-    .WithSubMenu<Feature1Menu>()
-    .WithSubMenu<Feature2Menu>(b => b
-        .WithSubMenu<Feature2ExtraMenu>());
+public interface IFirstMenu : ITuiMenu
+{
+    [TuiName("First command")]
+    FirstCommand FirstCommand { get; }
+}
 ```
 
 По итогам при запуске будет отображаться такое меню:
@@ -64,8 +53,8 @@ builder
 Такая инициализация создаст такое меню:
 
 ```
-> Go to First menu
-  Go to Second menu
+> First menu
+  Second menu
   Exit
 ```
 
