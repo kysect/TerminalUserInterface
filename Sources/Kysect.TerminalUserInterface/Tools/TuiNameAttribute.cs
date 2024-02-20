@@ -2,7 +2,7 @@
 
 namespace Kysect.TerminalUserInterface.Tools;
 
-[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
+[AttributeUsage(AttributeTargets.Property)]
 public class TuiNameAttribute : Attribute
 {
     public string Name { get; }
