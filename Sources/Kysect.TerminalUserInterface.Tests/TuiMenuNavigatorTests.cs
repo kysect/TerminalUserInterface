@@ -91,7 +91,7 @@ public class TuiMenuNavigatorTests
     {
         _navigationActionSelector.SelectedIndex = 0;
 
-        _menuNavigator.Run();
+        _menuNavigator.ProcessOneAction();
 
 
     }
