@@ -1,12 +1,8 @@
-﻿using Kysect.TerminalUserInterface.Commands;
-using Kysect.TerminalUserInterface.Menu;
+﻿using Kysect.TerminalUserInterface.Menu;
 
 namespace Kysect.TerminalUserInterface.Tests.Mocks;
 
-public class TestTuiMenu : ITuiMenu
+public interface ITestTuiMenu : ITuiMenu
 {
-    public IReadOnlyCollection<ITuiCommand> GetMenuItems()
-    {
-        return new[] { new TestTuiCommand() };
-    }
+    TestTuiCommand TestTuiCommand { get; }
 }

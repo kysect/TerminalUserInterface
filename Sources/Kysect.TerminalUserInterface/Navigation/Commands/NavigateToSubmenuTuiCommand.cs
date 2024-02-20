@@ -1,15 +1,17 @@
-﻿namespace Kysect.TerminalUserInterface.Navigation.Commands;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
 
-public class NavigateToSubmenuTuiCommand : INavigationTuiCommand
+namespace Kysect.TerminalUserInterface.Navigation.Commands;
+
+public class NavigateToSubmenuTuiCommand : IMenuNavigationAction
 {
+    public string Name { get; }
     public TuiMenuNavigationItem Submenu { get; }
 
     public NavigateToSubmenuTuiCommand(TuiMenuNavigationItem submenu)
     {
-        Submenu = submenu;
-    }
+        submenu.ThrowIfNull();
 
-    public void Execute()
-    {
+        Name = $"Navigate to {submenu.Name}";
+        Submenu = submenu;
     }
 }

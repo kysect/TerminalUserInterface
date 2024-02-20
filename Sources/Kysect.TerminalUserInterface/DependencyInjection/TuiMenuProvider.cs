@@ -1,4 +1,6 @@
-﻿using Kysect.TerminalUserInterface.Menu;
+﻿using Kysect.CommonLib.BaseTypes.Extensions;
+using Kysect.TerminalUserInterface.Commands;
+using Kysect.TerminalUserInterface.Menu;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Kysect.TerminalUserInterface.DependencyInjection;
@@ -12,8 +14,8 @@ public class TuiMenuProvider : ITuiMenuProvider
         _serviceProvider = serviceProvider;
     }
 
-    public T GetMenu<T>() where T : ITuiMenu
+    public ITuiCommand GetCommand(Type commandType)
     {
-        return _serviceProvider.GetRequiredService<T>();
+        return _serviceProvider.GetRequiredService(commandType).To<ITuiCommand>();
     }
 }

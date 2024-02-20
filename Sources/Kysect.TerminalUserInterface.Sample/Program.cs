@@ -1,7 +1,7 @@
 ﻿
 using Kysect.TerminalUserInterface.DependencyInjection;
 using Kysect.TerminalUserInterface.Navigation;
-using Kysect.TerminalUserInterface.Sample;
+using Kysect.TerminalUserInterface.Sample.Menu;
 using Lunet.Extensions.Logging.SpectreConsole;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -31,10 +31,7 @@ IServiceProvider CreateDependencies()
 TuiMenuNavigator CreateMenuNavigator(IServiceProvider serviceProvider)
 {
     ILogger logger = serviceProvider.GetRequiredService<ILogger<Program>>();
-
     var menuProvider = new TuiMenuProvider(serviceProvider);
-    var sampleMenuInitializer = new SampleMenuInitializer(menuProvider);
-    TuiMenuNavigationItem menuNavigationItem = sampleMenuInitializer.Create();
-    var tuiMenuNavigator = new TuiMenuNavigator(menuNavigationItem, logger);
+    var tuiMenuNavigator = TuiMenuNavigator.Create<ISampleMainMenu>(menuProvider, logger);
     return tuiMenuNavigator;
 }

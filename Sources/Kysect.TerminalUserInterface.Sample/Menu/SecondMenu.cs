@@ -1,12 +1,9 @@
-﻿using Kysect.TerminalUserInterface.Commands;
-using Kysect.TerminalUserInterface.Menu;
+﻿using Kysect.TerminalUserInterface.Menu;
 
 namespace Kysect.TerminalUserInterface.Sample.Menu;
 
-public class SecondMenu : ITuiMenu
+public interface ISecondMenu : ITuiMenu
 {
-    public IReadOnlyCollection<ITuiCommand> GetMenuItems()
-    {
-        return new[] { new SecondCommand(), };
-    }
+    IThirdMenu ThirdMenu { get; }
+    SecondCommand SecondCommand { get; }
 }
