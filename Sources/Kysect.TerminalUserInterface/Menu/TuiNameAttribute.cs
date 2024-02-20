@@ -1,6 +1,6 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
 
-namespace Kysect.TerminalUserInterface.Tools;
+namespace Kysect.TerminalUserInterface.Menu;
 
 [AttributeUsage(AttributeTargets.Property)]
 public class TuiNameAttribute : Attribute

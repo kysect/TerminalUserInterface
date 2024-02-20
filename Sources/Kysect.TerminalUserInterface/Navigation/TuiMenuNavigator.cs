@@ -12,18 +12,18 @@ namespace Kysect.TerminalUserInterface.Navigation;
 public class TuiMenuNavigator
 {
     private readonly TuiMenuNavigationItem _rootItem;
-    private readonly ITuiMenuProvider _menuProvider;
+    private readonly ICommandExecutor _commandExecutor;
     private readonly ILogger _logger;
 
-    public static TuiMenuNavigator Create<T>(ITuiMenuProvider menuProvider, ILogger logger) where T : ITuiMainMenu
+    public static TuiMenuNavigator Create<T>(ICommandExecutor commandExecutor, ILogger logger) where T : ITuiMainMenu
     {
-        return new TuiMenuNavigator(new TuiMenuNavigationItem("Main menu", TypeInstanceCache<T>.Instance), menuProvider, logger);
+        return new TuiMenuNavigator(new TuiMenuNavigationItem("Main menu", TypeInstanceCache<T>.Instance), commandExecutor, logger);
     }
 
-    public TuiMenuNavigator(TuiMenuNavigationItem rootItem, ITuiMenuProvider menuProvider, ILogger logger)
+    public TuiMenuNavigator(TuiMenuNavigationItem rootItem, ICommandExecutor commandExecutor, ILogger logger)
     {
         _rootItem = rootItem;
-        _menuProvider = menuProvider;
+        _commandExecutor = commandExecutor;
         _logger = logger;
     }
 
@@ -67,13 +67,13 @@ public class TuiMenuNavigator
 
         var commandList = new List<IMenuNavigationAction>();
         commandList.AddRange(
-            TuiMenuExtensions
+            TuiMenuNavigationExtensions
                 .GetMenuCommands(currentMenu.MenuType)
                 .Select(i => new ExecuteCommandNavigationAction(i.Name, i.CommandType))
                 .ToList());
 
         commandList.AddRange(
-            TuiMenuExtensions
+            TuiMenuNavigationExtensions
                 .GetMenuSubmenu(currentMenu.MenuType)
                 .Select(i => new NavigateToSubmenuTuiCommand(i))
                 .ToList());
@@ -88,8 +88,7 @@ public class TuiMenuNavigator
 
         try
         {
-            ITuiCommand command = _menuProvider.GetCommand(selectedCommand.CommandType);
-            command.Execute();
+            _commandExecutor.Execute(selectedCommand.CommandType);
         }
         catch (Exception e)
         {

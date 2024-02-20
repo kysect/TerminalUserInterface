@@ -1,19 +1,18 @@
 ﻿using Kysect.CommonLib.BaseTypes.Extensions;
 using Kysect.CommonLib.Reflection.TypeCache;
 using Kysect.TerminalUserInterface.Commands;
-using Kysect.TerminalUserInterface.Navigation;
-using Kysect.TerminalUserInterface.Tools;
+using Kysect.TerminalUserInterface.Menu;
 using System.Reflection;
 
-namespace Kysect.TerminalUserInterface.Menu;
+namespace Kysect.TerminalUserInterface.Navigation;
 
-public static class TuiMenuExtensions
+public static class TuiMenuNavigationExtensions
 {
     public static IReadOnlyCollection<TuiMenuNavigationItem> GetMenuSubmenu(Type menuType)
     {
         menuType.ThrowIfNull();
 
-        List<TuiMenuNavigationItem> result = new List<TuiMenuNavigationItem>();
+        var result = new List<TuiMenuNavigationItem>();
         foreach (var property in menuType.GetProperties())
         {
             if (TypeInstanceCache<ITuiMenu>.Instance.IsAssignableFrom(property.PropertyType))
@@ -34,7 +33,7 @@ public static class TuiMenuExtensions
     {
         menuType.ThrowIfNull();
 
-        List<TuiMenuCommandElement> result = new List<TuiMenuCommandElement>();
+        var result = new List<TuiMenuCommandElement>();
         foreach (var property in menuType.GetProperties())
         {
             if (TypeInstanceCache<ITuiCommand>.Instance.IsAssignableFrom(property.PropertyType))
