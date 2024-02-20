@@ -8,7 +8,6 @@ namespace Kysect.TerminalUserInterface.Tests;
 
 public class TuiMenuExtensionsTests
 {
-    [TuiName("First command")]
     public class FirstCommand : ITuiCommand
     {
         public void Execute()
@@ -19,6 +18,7 @@ public class TuiMenuExtensionsTests
 
     public interface ITestMenu : ITuiMenu
     {
+        [TuiName("First command")]
         FirstCommand First { get; }
     }
 
@@ -29,6 +29,6 @@ public class TuiMenuExtensionsTests
 
         IReadOnlyCollection<TuiMenuCommandElement> items = TuiMenuExtensions.GetMenuCommands(menuType);
 
-        items.Should().BeEquivalentTo([new TuiMenuCommandElement("First", typeof(FirstCommand))]);
+        items.Should().BeEquivalentTo([new TuiMenuCommandElement("First command", typeof(FirstCommand))]);
     }
 }
