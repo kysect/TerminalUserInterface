@@ -1,13 +1,17 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kysect.TerminalUserInterface", "Kysect.TerminalUserInterface\Kysect.TerminalUserInterface.csproj", "{6BBEA84D-E2D3-43BA-9601-585593EB5A75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kysect.TerminalUserInterface.Sample", "Kysect.TerminalUserInterface.Sample\Kysect.TerminalUserInterface.Sample.csproj", "{79CEBEBF-2B3B-40B2-A94B-06388F053223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kysect.TerminalUserInterface.Sample", "Kysect.TerminalUserInterface.Sample\Kysect.TerminalUserInterface.Sample.csproj", "{79CEBEBF-2B3B-40B2-A94B-06388F053223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kysect.TerminalUserInterface.Tests", "Kysect.TerminalUserInterface.Tests\Kysect.TerminalUserInterface.Tests.csproj", "{4A041BEE-EA9D-4FE2-A758-9620DF9D8785}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kysect.TerminalUserInterface.Tests", "Kysect.TerminalUserInterface.Tests\Kysect.TerminalUserInterface.Tests.csproj", "{4A041BEE-EA9D-4FE2-A758-9620DF9D8785}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6BC8698-8440-4715-B5D4-21EC1791E22A}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
