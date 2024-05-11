@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,5 +13,4 @@
     <PackageReference Include="Kysect.CommonLib.DependencyInjection" />
     <PackageReference Include="Spectre.Console" />
   </ItemGroup>
-
 </Project>
